@@ -13,7 +13,7 @@ public class Prototype {
 	public static final char[] menuName = {'a','b','c','d','e','f'};
 	public static final int[] menuPrice = {50 ,40 ,50 ,65 ,40 ,75 };
 	public static final String[] discountCombine = {"ab" , "cd" , "ef" , "abcdef"};
-	public static final int[] discountValue = {15 , 25 , 35 , 100};
+	public static final int[] discountValue = {15 , 25 , 35 , 50};
 	
 	
 	public Prototype (int location) throws Exception
@@ -135,8 +135,11 @@ public class Prototype {
 				}
 				while(orderCheck != -1)
 				{
-					discountNumber++;
 					orderCheck = orderList.indexOf(this.menuName[i],orderCheck+1);
+					if(orderCheck != -1)
+					{
+						discountNumber++;
+					}
 				}
 				discountNumberMin = Math.min(discountNumber, discountNumberMin);
 			}
